@@ -35,15 +35,15 @@ public class TestOrder {
     public static Object[][] testData(){
         return new Object[][] {
                 {"Роман", "Владимиров", "Первая", "79999999999", "пав"},
-                //{"Сергей", "Сергеев", "Тульская", "79130009988", "семь"},
-               // {"Игорь", "Михалычев", "Улица-Сутулица", "78889990033", "парам-пам-пам"}
+                {"Сергей", "Сергеев", "Тульская", "79130009988", "семь"},
+                {"Игорь", "Михалычев", "Улица-Сутулица", "78889990033", "парам-пам-пам"}
         };
     }
     @Before
     public void setUp() {
         System.setProperty("webdriver.firefox.driver","Users\\valiulin.r\\WebDriver\\bin");
         ChromeOptions options = new ChromeOptions();
-        driver = new FirefoxDriver(options);
+        driver = new ChromeDriver(options);
         driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
         HeadPage headPage = new HeadPage(driver);
         headPage.open();
@@ -52,7 +52,7 @@ public class TestOrder {
     @Test
     public void orderTests(){
         HeadPage headPage = new HeadPage(driver);
-        HeadPage.clickHeadOrderButton();
+        headPage.clickHeadOrderButton();
         OrderPage orderPage = new OrderPage(driver);
         orderPage.inputFirstOrderPage(name, lastName, street, telephone);
         assertEquals("Заказ оформлен",orderPage.inputSecondOrderPage(comment), orderPage.checkFinal());
@@ -60,7 +60,7 @@ public class TestOrder {
     @Test
     public void orderTestsTwo(){
         HeadPage headPage = new HeadPage(driver);
-        HeadPage.scrollDownTwo();
+        headPage.scrollDownTwo();
         HeadPage.clickCentrOrderButton();
         OrderPage orderPage = new OrderPage(driver);
         orderPage.inputFirstOrderPage(name, lastName, street, telephone);
