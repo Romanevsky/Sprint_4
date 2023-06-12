@@ -44,8 +44,8 @@ public class TestOrder {
     @Before
     public void setUp() {
         System.setProperty("webdriver.firefox.driver", "Users\\valiulin.r\\WebDriver\\bin");
-        FirefoxOptions options = new FirefoxOptions();
-        driver = new FirefoxDriver(options);
+        ChromeOptions options = new ChromeOptions();
+        driver = new ChromeDriver(options);
         driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
         HeadPage headPage = new HeadPage(driver);
         headPage.open();
