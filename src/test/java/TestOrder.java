@@ -17,55 +17,60 @@ import static org.junit.Assert.assertEquals;
 
 @RunWith(Parameterized.class)
 public class TestOrder {
-    private WebDriver driver;
     private final String name;
     private final String lastName;
     private final String street;
     private final String telephone;
     private final String comment;
+    private WebDriver driver;
 
-    public TestOrder(String name, String lastName, String street, String telephone, String comment){
+    public TestOrder(String name, String lastName, String street, String telephone, String comment) {
         this.name = name;
         this.lastName = lastName;
         this.street = street;
         this.telephone = telephone;
         this.comment = comment;
     }
-    @Parameterized.Parameters
-    public static Object[][] testData(){
-        return new Object[][] {
+
+    @Parameterized.Parameters(name = "Проверка полей: {0} {1} {2} {3} {4}")
+    public static Object[][] testData() {
+        return new Object[][]{
                 {"Роман", "Владимиров", "Первая", "79999999999", "пав"},
-                {"Сергей", "Сергеев", "Тульская", "79130009988", "семь"},
-                {"Игорь", "Михалычев", "Улица-Сутулица", "78889990033", "парам-пам-пам"}
+                {"Игорь", "Михалычев", "Улица-Сутулица", "78889990033", "парам-пам-пам"},
+                {"gfdsf", "fdsfs", "fdsfsd", "7489348327498273429837d", "#$#$#///."} //Негативная проверка
         };
     }
+
     @Before
     public void setUp() {
-        System.setProperty("webdriver.firefox.driver","Users\\valiulin.r\\WebDriver\\bin");
-        ChromeOptions options = new ChromeOptions();
-        driver = new ChromeDriver(options);
+        System.setProperty("webdriver.firefox.driver", "Users\\valiulin.r\\WebDriver\\bin");
+        FirefoxOptions options = new FirefoxOptions();
+        driver = new FirefoxDriver(options);
         driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
         HeadPage headPage = new HeadPage(driver);
         headPage.open();
         headPage.clickCookButton();
     }
+
     @Test
-    public void orderTests(){
+    public void orderTests() {        //Тестирование формы заказа через кнопку Заказать в шапке страницы
         HeadPage headPage = new HeadPage(driver);
         headPage.clickHeadOrderButton();
         OrderPage orderPage = new OrderPage(driver);
         orderPage.inputFirstOrderPage(name, lastName, street, telephone);
-        assertEquals("Заказ оформлен",orderPage.inputSecondOrderPage(comment), orderPage.checkFinal());
+        assertEquals("Заказ оформлен", orderPage.inputSecondOrderPage(comment), orderPage.checkFinal());
     }
+
     @Test
-    public void orderTestsTwo(){
+    public void orderTestsTwo() {  //Тестирование формы заказа через кнопку Заказать в центре страницы
         HeadPage headPage = new HeadPage(driver);
         headPage.scrollDownTwo();
         HeadPage.clickCentrOrderButton();
         OrderPage orderPage = new OrderPage(driver);
         orderPage.inputFirstOrderPage(name, lastName, street, telephone);
-        assertEquals("Заказ оформлен",orderPage.inputThirdOrderPage(comment), orderPage.checkFinal());
+        assertEquals("Заказ оформлен", orderPage.inputThirdOrderPage(comment), orderPage.checkFinal());
     }
+
     @After
     public void theEnd() {
         driver.quit();
