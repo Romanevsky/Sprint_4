@@ -26,7 +26,7 @@ public class TestLogoAndPage {
     public static Object[][] testDataS() {
         return new Object[][]{
                 {"4543"},
-                {"gfdgf"}
+                {"gfsgf"}
         };
     }
 

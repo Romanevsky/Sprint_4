@@ -11,7 +11,7 @@ public class OrderPage {
     final static By ORDER_BUTTON_CENTERS = By.xpath("//div[3]/button[2]"); //Кнопка Заказать в центре страницы
     private final static By inputName = By.xpath(".//input[@placeholder='* Имя']");//Поле Имя
     private final static By inputLastName = By.xpath(".//input[@placeholder='* Фамилия']");//Поле Фамилия
-    private final static By inputAddress = By.xpath(".//input[@placeholder='* Адрес: куда привезти заказ']");//Поле Адрес
+    private final static By inputAddress = By.xpath(".//input[@placeholder='* Адрес: куда привезти заказ']");//Поле Адрес.
     private final static By inputMetro = By.xpath(".//input[@placeholder='* Станция метро']");//Поле Метро
     private final static By inputTelephone = By.xpath(".//input[@placeholder='* Телефон: на него позвонит курьер']");//Поле Телефон
     private final static By inputDate = By.xpath(".//input[@placeholder='* Когда привезти самокат']");//Поле когда привезти самокат

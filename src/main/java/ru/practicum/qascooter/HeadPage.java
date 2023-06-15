@@ -5,9 +5,9 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 
 public class HeadPage {
-    public static final String PAGE_URL = "https://qa-scooter.praktikum-services.ru/"; //Страница
+    public static final String PAGE_URL = "https://qa-scooter.praktikum-services.ru/"; //Страница.
     private final static By ORDER_BUTTON_HEAD = By.className("Button_Button__ra12g"); //Кнопка заказать в шапке страницы
-    private final static By ORDER_BUTTON_CENTR = By.className("Home_FinishButton__1_cWm"); //Кнопка Заказать в центре страницы
+    private final static By ORDER_BUTTON_CENTR = By.className("Home_FinishButton__1_cWm"); //Кнопка Заказать в центре страницы.
     private final static By ORDER_BUTTON_STATUS = By.className("Header_Link__1TAG7"); //Кнопка статус заказа
     private final static By BUTTON_GO = By.xpath(".//div[3]/button");//Кнопка GO
     private final static By INPUT_NUMBER_ORDER = By.xpath(".//input[@placeholder='Введите номер заказа']");//Поле Введите номер заказа

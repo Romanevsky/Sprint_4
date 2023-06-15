@@ -25,7 +25,7 @@ public class TestText {
         headPage.clickCookButton();
         headPage.scrollDownOne();
     }
-
+    //Tests
     @Test
     public void testText0() {
         String example0 = "Сутки — 400 рублей. Оплата курьеру — наличными или картой.";
