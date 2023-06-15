@@ -1,4 +1,4 @@
-import org.example.OrderObject.HeadPage;
+import ru.practicum.qascooter.HeadPage;
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
@@ -52,9 +52,7 @@ public class TestLogoAndPage {
         WebDriver driver = new ChromeDriver();
         driver.get(url);
         Assert.assertEquals("Error page", expectedTitle, driver.getTitle());
-        theEnd();
     }
-
     @Test
     public void yandexTest() {
         HeadPage headPage = new HeadPage(driver);

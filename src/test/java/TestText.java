@@ -1,10 +1,11 @@
-import org.example.OrderObject.HeadPage;
+import ru.practicum.qascooter.HeadPage;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import ru.practicum.qascooter.HeadPage;
 
 import java.util.concurrent.TimeUnit;
 
